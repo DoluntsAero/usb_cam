@@ -52,6 +52,7 @@ extern "C"
 #define AV_CODEC_ID_MJPEG CODEC_ID_MJPEG
 #endif
 
+
 #include <string>
 #include <sstream>
 

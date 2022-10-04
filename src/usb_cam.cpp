@@ -56,6 +56,10 @@
 
 #define CLEAR(x) memset (&(x), 0, sizeof (x))
 
+#define avcodec_alloc_frame av_frame_alloc
+#define PIX_FMT_RGB24 AV_PIX_FMT_RGB24
+#define PIX_FMT_YUV422P AV_PIX_FMT_YUV422P
+
 namespace usb_cam {
 
 static void errno_exit(const char * s)
@@ -365,7 +369,8 @@ UsbCam::~UsbCam()
 
 int UsbCam::init_mjpeg_decoder(int image_width, int image_height)
 {
-  avcodec_register_all();
+ // avcodec_register_all();
+  av_log_set_level(AV_LOG_QUIET);
 
   avcodec_ = avcodec_find_decoder(AV_CODEC_ID_MJPEG);
   if (!avcodec_)

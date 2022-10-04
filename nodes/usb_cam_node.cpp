@@ -41,6 +41,8 @@
 #include <sstream>
 #include <std_srvs/Empty.h>
 
+#define AV_LOG_QUIET -8
+
 namespace usb_cam {
 
 class UsbCamNode
